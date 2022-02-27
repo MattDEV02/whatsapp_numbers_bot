@@ -1,0 +1,38 @@
+{
+  "name": "whatsapp_bot",
+  "private": false,
+  "version": "1.0.0",
+  "description": "Whatsapp bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "exec": "cls && node -r dotenv/config ./dist/index.js --trace-warnings --unhandled-rejections=strict",
+    "start": "npm run build && npm run exec"
+  },
+  "keywords": [
+    "Node JS",
+    "ES6",
+    "Whatsapp",
+    "Automatation"
+  ],
+  "author": "Lambertucci Matteo",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattDEV02/whatsapp_numbers_bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MattDEV02/whatsapp_numbers_bot/issues"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.15.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "rimraf": "^3.0.2"
+  }
+}
