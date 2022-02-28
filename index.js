@@ -5,7 +5,8 @@ import {
    writeFile
 } from "fs";
 import {
-   Client
+   Client,
+   LegacySessionAuth
 } from "whatsapp-web.js";
 const qrcode = require("qrcode-terminal");
 import * as utils from "./utils.js";
@@ -26,7 +27,9 @@ try {
 }
 
 let client = new Client({
-   session: sessionData
+   authStrategy: new LegacySessionAuth({
+      session: sessionData
+   })
 });
 
 client.on("qr", qr => {
@@ -56,10 +59,10 @@ client.on("authenticated", session => {
 
 client.on("ready", async () => {
    try {
-      console.log(client.info)
       botIsUp = true;
       const text = `Bot is up. 🤖✅ (${Date.now()})`;
       console.log(text);
+      console.log(client.info)
       await client.sendMessage(`39${utils.NUMBERS_LIST[8]}@c.us`, text);
    } catch (error) {
       console.error(error);

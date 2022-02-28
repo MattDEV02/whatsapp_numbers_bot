@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "exec": "cls && node -r dotenv/config ./dist/index.js --trace-warnings --unhandled-rejections=strict",
+    "exec": "cls && node -r dotenv/config --trace-warnings --trace-deprecation --unhandled-rejections=strict ./dist/index.js",
     "start": "npm run build && npm run exec"
   },
   "keywords": [
@@ -28,7 +28,7 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.15.7"
+    "whatsapp-web.js": "^1.16.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
