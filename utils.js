@@ -1,8 +1,6 @@
 "use strict"
 
 
-const SESSION_FILE_PATH = "./session.json";
-
 String.prototype.isNumber = function () {
    return (this !== null) && (this !== undefined) && (this !== "") && (this !== false) && !isNaN(new Number(this))
 };
@@ -68,7 +66,22 @@ Math.factorial = num => {
 
 Math.isDivisibleFor = (x, y) => (x % y) === 0;
 
-Math.numDivisor = num => {
+Math.isPerfectNumber = num => {
+   let 
+      i = 0,
+      sum = 0,
+      result = false;
+   if(!Math.isPrime(num)) {
+      for(; i < num; i++) {
+         if(Math.isDivisibleFor(num, i))
+            sum += i;
+      }
+      result = num === sum;
+   }
+   return result;
+};
+
+Math.numDividers = num => {
    num = Math.abs(num);
    let
       div = 0,
@@ -94,6 +107,8 @@ Math.fi = num => {
    return count;
 };
 
+Math.fibonacci = num => num > 1 ? Math.fibonacci(num - 1) + Math.fibonacci(num - 2) : 1;
+
 Math.reverseNumber = num => Number(String(num).split('').reverse().join(''));
 
 Math.intToAscii = num => String.fromCharCode(num);
@@ -101,6 +116,9 @@ Math.intToAscii = num => String.fromCharCode(num);
 Math.intToBin = num => new Number(num).toString(2);
 
 Math.intToHex = num => new Number(num).toString(16);
+
+
+const SESSION_FILE_PATH = "./session.json";
 
 const getPhoneNumber = phone => phone.slice(2, 1) + phone.slice(2, phone.indexOf("@"));
 
