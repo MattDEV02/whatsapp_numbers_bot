@@ -1,16 +1,19 @@
+"use strict"
+
+
 const SESSION_FILE_PATH = "./session.json";
 
 String.prototype.isNumber = function () {
    return (this !== null) && (this !== undefined) && (this !== "") && (this !== false) && !isNaN(new Number(this))
 };
 
-Date.now = function () {
+Date.now = () => {
    let actual_datetime = new Date();
    actual_datetime.setHours(actual_datetime.getHours() + 1);
    return actual_datetime.toUTCString().replace(" GMT", '')
 };
 
-const isPrime = num => {
+Math.isPrime = num => {
    let
       i = 2,
       s = Math.sqrt(num);
@@ -20,26 +23,26 @@ const isPrime = num => {
    return num > 1;
 };
 
-const isSquare = num => num % Math.sqrt(num) === 0;
+Math.isSquare = num => num === 0 || (num % Math.sqrt(num)) === 0;
 
-const isSumSquare = num => {
+Math.isSumSquare = num => {
    let
       i = 1,
       j = 1,
       result = false;
-   if(num >= 0) {
+   if (num >= 0) {
       for (;
          (i * i) <= num; i++)
          for (;
             (j * j) <= num; j++)
             if ((i * i) + (j * j) === num)
                result = true;
-   } else 
+   } else
       result = false;
    return result;
 };
 
-const isPalindrome = num => {
+Math.isPalindrome = num => {
    num = String(num);
    const num_length = num.length;
    let
@@ -53,36 +56,51 @@ const isPalindrome = num => {
    return pali;
 };
 
-const isDivisibleFor = (x, y) => x % y === 0;
+Math.factorial = num => {
+   num = Math.abs(num);
+   if (num > 2)
+      return num * Math.factorial(num - 1);
+   else if (num > 0)
+      return num;
+   else
+      return 1;
+}
 
-const numDivisor = num => {
+Math.isDivisibleFor = (x, y) => (x % y) === 0;
+
+Math.numDivisor = num => {
    num = Math.abs(num);
    let
       div = 0,
       i = 0;
    for (; i <= num; i++) {
-      if (isDivisibleFor(num, i))
+      if (Math.isDivisibleFor(num, i))
          div++;
    }
    return div;
 };
 
-const gcd = (x, y) => (y === 0) ? x : gcd(y, x % y);
+Math.gcd = (x, y) => y === 0 ? x : Math.gcd(y, x % y);
 
-const fi = num => {
+Math.fi = num => {
    num = Math.abs(num);
-   let i = 0,
+   let
+      i = 0,
       count = 0;
    for (; i <= num; i++) {
-      if (gcd(num, i) === 1)
+      if (Math.gcd(num, i) === 1)
          count++;
    }
    return count;
 };
 
-const intToBin = num => new Number(num).toString(2);
+Math.reverseNumber = num => Number(String(num).split('').reverse().join(''));
 
-const intToHex = num => new Number(num).toString(16);
+Math.intToAscii = num => String.fromCharCode(num);
+
+Math.intToBin = num => new Number(num).toString(2);
+
+Math.intToHex = num => new Number(num).toString(16);
 
 const getPhoneNumber = phone => phone.slice(2, 1) + phone.slice(2, phone.indexOf("@"));
 
@@ -125,14 +143,4 @@ export {
    SESSION_FILE_PATH,
    NUMBERS_LIST,
    getMessage,
-   isPrime,
-   isDivisibleFor,
-   isSquare,
-   isSumSquare,
-   isPalindrome,
-   numDivisor,
-   gcd,
-   fi,
-   intToBin,
-   intToHex
 };

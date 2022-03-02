@@ -1,3 +1,6 @@
+"use strict"
+
+
 import {
    existsSync,
    statSync,
@@ -63,7 +66,7 @@ client.on("ready", async () => {
       const text = `Bot is up. 🤖✅ (${Date.now()})`;
       console.log(text);
       console.log(client.info)
-      await client.sendMessage(`39${utils.NUMBERS_LIST[8]}@c.us`, text);
+      await client.sendMessage(`39${utils.NUMBERS_LIST[5]}@c.us`, text);
    } catch (error) {
       console.error(error);
    }
@@ -89,7 +92,7 @@ client.on("message_create", async (message) => {
       }
       if (message.body.isNumber() && utils.NUMBERS_LIST.some(number => message.from.includes(number))) {
          const N = parseInt(new Number(message.body));
-         const text = `Il numero ${N} è ${N > 0 ? "positivo" : "negativo"}, ${utils.isDivisibleFor(N, 2) ? "pari" : "dispari"}, ${utils.isPrime(N) ? "primo" : "non primo"}, ${utils.isSquare(N) ? "quadrato perfetto" : "non quadrato perfetto"}, ${utils.isSumSquare(N) ? "somma di due quadrati perfetti" : "non è la somma di due quadrati perfetti"}, ${utils.isPalindrome(N) ? "palindromo" : "non palindromo"}, preceduto da ${N - 1} e seguito da ${N + 1}, radice ${Math.sqrt(Math.abs(N))}, quadrato ${(N * N)}, metà ${N / 2}, doppio ${N * 2}, binario ${utils.intToBin(N)}, esadecimale: ${utils.intToBin(N)}, dotato di ${utils.numDivisor(N)} divisori e ${utils.fi(N)} numeri coprimi con esso.`;
+         const text = `Il numero ${N} è ${N > 0 ? "positivo" : "negativo"}, ${Math.isDivisibleFor(N, 2) ? "pari" : "dispari"}, ${Math.isPrime(N) ? "primo" : "non primo"}, ${Math.isSquare(N) ? "quadrato perfetto" : "non quadrato perfetto"}, ${Math.isSumSquare(N) ? "somma di due quadrati perfetti" : "non è la somma di due quadrati perfetti"}, ${Math.isPalindrome(N) ? "palindromo" : "non palindromo"}, preceduto da ${N - 1} e seguito da ${N + 1}, radice ${Math.sqrt(Math.abs(N))}, fattoriale ${Math.factorial(N)}, quadrato ${(N * N)}, opposto ${-1 * N}, inverso ${Math.pow(N, -1)}, metà ${N / 2}, doppio ${N * 2}, binario ${Math.intToBin(N)}, esadecimale ${Math.intToBin(N)}, ascii '${Math.intToAscii(N)}', contrario ${Math.reverseNumber(N)}, dotato di ${Math.numDivisor(N)} divisori e ${Math.fi(N)} numeri coprimi con esso.`;
          console.log(text);
          await message.reply(text);
          await client.sendMessage(chat.id._serialized, "Messaggio inviato da un bot, non da Matteo Lamb🥲");
