@@ -2,7 +2,7 @@
 
 
 String.prototype.isNumber = function () {
-   return (this !== null) && (this !== undefined) && (this !== "") && (this !== false) && !isNaN(new Number(this))
+   return (this !== null) && (this !== undefined) && (this !== '') && (this !== false) && !isNaN(new Number(this))
 };
 
 Date.now = () => {
