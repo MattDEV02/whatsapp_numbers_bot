@@ -145,16 +145,7 @@ const getMessage = (message, contact, chat) => {
 };
 
 const NUMBERS_LIST = [
-   "3206145662", // Elisa
-   process.env.MY_PHONE_NUMBER, // IO
-   "3339720994", // Silvia
-   "3450451527", // Bruno
-   "3495604013", // Mamma
-   "3667488559", // Giovanni
-   "3779987656", // Epifani
-   "3881081304", // Cristian 
-   "3911700268", // Carol
-   "3917319168" // Papà
+   process.env.MY_PHONE_NUMBER, // Me
 ];
 
 export {
