@@ -16,7 +16,7 @@
     "Whatsapp",
     "Automatation"
   ],
-  "author": "Lambertucci Matteo",
+  "author": "Lambertucci Matteo <matteolambertucci3@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "dotenv": "^16.0.0",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.16.0"
-  },
+  },                                                 
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",

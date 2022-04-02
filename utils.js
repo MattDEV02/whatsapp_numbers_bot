@@ -67,13 +67,13 @@ Math.factorial = num => {
 Math.isDivisibleFor = (x, y) => (x % y) === 0;
 
 Math.isPerfectNumber = num => {
-   let 
+   let
       i = 0,
       sum = 0,
       result = false;
-   if(!Math.isPrime(num)) {
-      for(; i < num; i++) {
-         if(Math.isDivisibleFor(num, i))
+   if (!Math.isPrime(num)) {
+      for (; i < num; i++) {
+         if (Math.isDivisibleFor(num, i))
             sum += i;
       }
       result = num === sum;
