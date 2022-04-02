@@ -145,7 +145,7 @@ const getMessage = (message, contact, chat) => {
 };
 
 const NUMBERS_LIST = [
-   process.env.MY_PHONE_NUMBER, // Me
+   process.env.MY_PHONE_NUMBER // Me
 ];
 
 export {
